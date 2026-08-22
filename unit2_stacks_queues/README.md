@@ -2,35 +2,29 @@
 
 ## Overview
 
-This assignment explores two fundamental linear data structures:
+This assignment explored two linear data structures:
 
-- Stack (LIFO)
-- Queue (FIFO)
+- Stack using Last-In, First-Out (LIFO)
+- Queue using First-In, First-Out (FIFO)
 
-## Learning Objectives
+## Design and Scenario
 
-- Implement stack operations
-- Implement queue operations
-- Understand LIFO and FIFO behavior
-- Create edge cases
+I implemented the stack with a Python list and the queue with `collections.deque`. My program used a library scenario. The stack represented returned books placed on top of one another. The last book placed on the stack was the first book removed. The queue represented patrons waiting for library holds. The first patron added was the first patron processed.
 
-## Requirements
+## Work Completed
 
-Complete all TODO sections:
+I completed every TODO block while leaving the original prompts in the Python file. I implemented `push`, `pop`, `peek`, and `is_empty` for the stack. I also implemented `enqueue`, `dequeue`, `front`, and `is_empty` for the queue. I added clear output, comments, empty-structure tests, single-item tests, and additional mixed-operation tests.
 
-1. Implement stack operations.
-2. Implement queue operations.
-3. Demonstrate LIFO behavior.
-4. Demonstrate FIFO behavior.
-5. Create and test edge cases.
-6. Create a real-world scenario.
+## Edge Cases
+
+The program checked whether each structure was empty before removing or viewing a value. Empty operations printed a message and returned `None` instead of causing an error. I also verified that removing the only item from a stack or queue made the structure empty.
+
+## Memory Use
+
+The stack and queue used `O(n)` memory because each added item required another stored reference. Their memory use grew in proportion to the number of items currently stored and decreased as items were removed.
 
 ## Discussion Board Reflection
 
-After completing the programming assignment, add this reflection to your initial discussion post in LEO.
+While completing this assignment, I learned that stacks and queues can use similar operations but organize information in different orders. The stack used a Python list because adding and removing from the end worked well for LIFO. The queue used `deque` because `popleft()` removed the oldest item efficiently for FIFO. My library example helped me understand the difference. Returned books were placed on top of a stack, so the newest book was removed first. Library hold requests were handled in the order patrons joined the queue.
 
-Your reflection should be approximately 150–200 words and address the following questions:
-
-1. What concepts or skills did you learn while completing this assignment?
-2. What challenges did you encounter, and how did you overcome them?
-3. Explain the differences between stacks and queues as this relates to real-world applications.
+The main challenge was deciding what should happen when the program tried to remove or view an item from an empty structure. Without a check, those operations could cause an error. I used `is_empty()` before `pop`, `peek`, `dequeue`, and `front`. The methods printed a simple message and returned `None` when no value was available. I also tested a structure containing only one item and confirmed it became empty after removal. This assignment showed me that small edge-case checks can make a program safer and easier to understand.
