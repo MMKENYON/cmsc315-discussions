@@ -13,7 +13,7 @@ I implemented the stack with a Python list and the queue with `collections.deque
 
 ## Work Completed
 
-I completed every TODO block while leaving the original prompts in the Python file. I implemented `push`, `pop`, `peek`, and `is_empty` for the stack. I also implemented `enqueue`, `dequeue`, `front`, and `is_empty` for the queue. I added clear output, comments, empty-structure tests, single-item tests, and additional mixed-operation tests.
+I completed every required section in the Python file. I implemented `push`, `pop`, `peek`, and `is_empty` for the stack. I also implemented `enqueue`, `dequeue`, `front`, and `is_empty` for the queue. I added clear output, comments, empty-structure tests, single-item tests, and additional mixed-operation tests.
 
 ## Edge Cases
 

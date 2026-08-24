@@ -1,43 +1,21 @@
-"""
-===========================================================
-UNIT 2 DISCUSSION: STACKS AND QUEUES (PYTHON)
-===========================================================
-
-OVERVIEW:
-This assignment introduces two fundamental data structures:
-the Stack (LIFO) and the Queue (FIFO).
-
-You will complete, modify, and extend the starter code while
-explaining key concepts through comments and improved output.
-"""
-
 from collections import deque
 
 
 class Stack:
     def __init__(self):
-        # TODO (Student): Create the internal data structure for the stack.
-        # Hint: A Python list can be used to store stack values.
         self.values = []
 
     def push(self, value):
-        # TODO (Student): Add value to the stack.
-        # Add a short comment explaining why this operation supports LIFO behavior.
         # Appending places the newest value at the top so it can be removed first.
         self.values.append(value)
 
     def pop(self):
-        # TODO (Student): Remove and return the most recently added value.
-        # Improve or explain empty-stack handling.
-        # What should happen if the stack is empty?
         if self.is_empty():
             print("The stack is empty, so there is nothing to remove.")
             return None
         return self.values.pop()
 
     def peek(self):
-        # TODO (Student): Return the top value without removing it.
-        # Add a comment explaining what peek does.
         # Peek lets the program view the newest value without changing the stack.
         if self.is_empty():
             print("The stack is empty, so there is no top value to view.")
@@ -45,33 +23,24 @@ class Stack:
         return self.values[-1]
 
     def is_empty(self):
-        # TODO (Student): Return True if the stack has no values.
         return len(self.values) == 0
 
 
 class Queue:
     def __init__(self):
-        # TODO (Student): Create the internal data structure for the queue.
-        # Hint: collections.deque is useful for efficient queue operations.
         self.values = deque()
 
     def enqueue(self, value):
-        # TODO (Student): Add value to the back of the queue.
-        # Add a short comment explaining why this operation supports FIFO behavior.
         # Appending adds each new request behind the requests that arrived earlier.
         self.values.append(value)
 
     def dequeue(self):
-        # TODO (Student): Remove and return the value from the front of the queue.
-        # Explain or improve empty-queue handling.
         if self.is_empty():
             print("The queue is empty, so there is nothing to remove.")
             return None
         return self.values.popleft()
 
     def front(self):
-        # TODO (Student): Return the front value without removing it.
-        # Add a comment explaining what front returns.
         # Front shows the request that has waited the longest without removing it.
         if self.is_empty():
             print("The queue is empty, so there is no front value to view.")
@@ -79,7 +48,6 @@ class Queue:
         return self.values[0]
 
     def is_empty(self):
-        # TODO (Student): Return True if the queue has no values.
         return len(self.values) == 0
 
 
@@ -87,20 +55,6 @@ def main():
     print("=== UNIT 2: STACKS AND QUEUES ===")
     print("Scenario: A library organizes returned books and hold requests.")
 
-    # ===============================
-    # TODO (Student): STACK DEMO
-    # ===============================
-    # Requirements:
-    # 1. Create a Stack object.
-    # 2. Add at least 4 values to the stack.
-    # 3. Improve the print statements so they clearly explain what is happening.
-    # 4. Demonstrate LIFO behavior.
-    # 5. Show what happens when pop() is used on an empty stack.
-    #
-    # Edge Cases:
-    # 6. Show what happens when peek() is used on an empty stack.
-    # 7. Create a stack with only one item, remove it,
-    #    and verify the stack is empty afterward.
     print("\n=== RETURNED BOOK STACK ===")
     returned_books = Stack()
     books = ["Mystery novel", "Science book", "History book", "Poetry collection"]
@@ -124,20 +78,6 @@ def main():
     print(f"Single-item stack removed: {single_book_stack.pop()}")
     print(f"Is the single-item stack empty now? {single_book_stack.is_empty()}")
 
-    # ===============================
-    # TODO (Student): QUEUE DEMO
-    # ===============================
-    # Requirements:
-    # 1. Create a Queue object.
-    # 2. Add at least 4 values to the queue.
-    # 3. Improve the print statements so they clearly explain what is happening.
-    # 4. Demonstrate FIFO behavior.
-    # 5. Show what happens when dequeue() is used on an empty queue.
-    #
-    # Edge Cases:
-    # 6. Show what happens when front() is used on an empty queue.
-    # 7. Create a queue with only one item, remove it,
-    #    and verify the queue is empty afterward.
     print("\n=== LIBRARY HOLD REQUEST QUEUE ===")
     hold_requests = Queue()
     patrons = ["Ava", "Noah", "Mia", "Ethan"]
