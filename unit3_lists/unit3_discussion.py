@@ -95,6 +95,7 @@ def main():
     print("After adding at the beginning:", assignments)
 
     # Add an assignment in the middle.
+    # Index 2 is the middle of the new list.
     insert_at(assignments, 2, "Review notes")
     print("After adding in the middle:", assignments)
 
@@ -116,14 +117,17 @@ def main():
     # 4. Use comments to clearly explain what is happening in the output.
 
     print("\n=== DELETION TESTS ===")
+    # Show the removed first item and updated list.
     removed = delete_at(assignments, 0)
     print("Removed from the beginning:", removed)
     print("Updated list:", assignments)
 
+    # Show the removed middle item and updated list.
     removed = delete_at(assignments, 2)
     print("Removed from the middle:", removed)
     print("Updated list:", assignments)
 
+    # Show the removed last item and updated list.
     last_index = len(assignments) - 1
     removed = delete_at(assignments, last_index)
     print("Removed from the end:", removed)
