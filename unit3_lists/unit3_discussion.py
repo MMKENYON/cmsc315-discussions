@@ -22,7 +22,10 @@ def insert_at(lst, index, value):
     - Use comments to explain how insertion performance may vary depending on
       where the insertion occurs.
     """
-    pass
+    # Insert the value at the requested index.
+    # Later items shift one position to the right.
+    # Beginning and middle insertions take more work than the end.
+    lst.insert(index, value)
 
 
 def delete_at(lst, index):
@@ -36,7 +39,12 @@ def delete_at(lst, index):
     - Return None if the index is invalid.
     - Add comments explaining why index validation and safe deletion are important.
     """
-    pass
+    # Check the index so the program does not crash.
+    # This also makes deletion safe when the list is empty.
+    if index >= 0 and index < len(lst):
+        return lst.pop(index)
+
+    return None
 
 
 def search_value(lst, value):
@@ -49,7 +57,12 @@ def search_value(lst, value):
     - Return -1 if the value is not found.
     - Add comments explaining why this is a linear search and why it scans sequentially.
     """
-    pass
+    # This is a linear search because it checks each item in order.
+    for index in range(len(lst)):
+        if lst[index] == value:
+            return index
+
+    return -1
 
 
 def main():
@@ -70,7 +83,24 @@ def main():
     # 5. Use comments to explain each step in the implementation.
 
     print("\n=== INSERTION TESTS ===")
-    print("TODO: Create a list and demonstrate insertions.")
+    assignments = [
+        "Read chapter",
+        "Write discussion",
+        "Complete lab"
+    ]
+    print("Original list:", assignments)
+
+    # Add an assignment at the beginning.
+    insert_at(assignments, 0, "Check announcements")
+    print("After adding at the beginning:", assignments)
+
+    # Add an assignment in the middle.
+    insert_at(assignments, 2, "Review notes")
+    print("After adding in the middle:", assignments)
+
+    # Add an assignment at the end.
+    insert_at(assignments, len(assignments), "Submit work")
+    print("After adding at the end:", assignments)
 
     # ===============================
     # TODO (Student): DELETION TESTS
@@ -86,7 +116,18 @@ def main():
     # 4. Use comments to clearly explain what is happening in the output.
 
     print("\n=== DELETION TESTS ===")
-    print("TODO: Demonstrate deletions from multiple positions.")
+    removed = delete_at(assignments, 0)
+    print("Removed from the beginning:", removed)
+    print("Updated list:", assignments)
+
+    removed = delete_at(assignments, 2)
+    print("Removed from the middle:", removed)
+    print("Updated list:", assignments)
+
+    last_index = len(assignments) - 1
+    removed = delete_at(assignments, last_index)
+    print("Removed from the end:", removed)
+    print("Updated list:", assignments)
 
     # ===============================
     # TODO (Student): SEARCH TESTS
@@ -99,7 +140,11 @@ def main():
     # 4. Use comments to explain each step.
 
     print("\n=== SEARCH TESTS ===")
-    print("TODO: Demonstrate searching for values.")
+    found_index = search_value(assignments, "Review notes")
+    print("Index of Review notes:", found_index)
+
+    missing_index = search_value(assignments, "Take quiz")
+    print("Index of Take quiz:", missing_index)
 
     # ===============================
     # TODO (Student): EDGE CASES
@@ -115,7 +160,12 @@ def main():
     # - Use comments to explain each edge case.
 
     print("\n=== EDGE CASES ===")
-    print("TODO: Demonstrate at least two edge cases.")
+    invalid_result = delete_at(assignments, 20)
+    print("Invalid deletion:", invalid_result)
+
+    empty_assignments = []
+    empty_result = delete_at(empty_assignments, 0)
+    print("Empty list deletion:", empty_result)
 
 
 
