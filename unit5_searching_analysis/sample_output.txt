@@ -1,0 +1,47 @@
+=== UNIT 5: SEARCH ALGORITHMS ===
+Example: searching for library book IDs.
+An index starts at 0. A result of -1 means not found.
+
+=== SMALL DATASET TEST ===
+Book IDs: [10, 20, 30, 40, 50]
+Search for book 30:
+Linear: 2
+Binary: 2
+Search for missing book 35:
+Linear: -1
+Binary: -1
+Both found book 30 and returned -1 for missing book 35.
+
+=== LARGE DATASET TEST ===
+This list has 1,000 book IDs, from 1 to 1000.
+Search for book 1000:
+Linear: 999
+Binary: 999
+Search for missing book 1001:
+Linear: -1
+Binary: -1
+Both searches gave the same results.
+For these targets, linear search checks all 1,000 items.
+Binary search checks 10 items by cutting the search area in half.
+This saves more work as the sorted list gets larger.
+
+=== EDGE CASE TESTS ===
+Empty list: both should return -1.
+Linear: -1
+Binary: -1
+One item [25], search for 25: both should return 0.
+Linear: 0
+Binary: 0
+One item [25], search for 30: both should return -1.
+Linear: -1
+Binary: -1
+First book 10: both should return 0.
+Linear: 0
+Binary: 0
+Last book 50: both should return 4.
+Linear: 4
+Binary: 4
+
+Unsorted returned books: [40, 10, 30]
+Linear search for book 30: 2
+Binary search needs the book IDs to be sorted first.
